@@ -142,16 +142,18 @@ while rounds_played < num_rounds:
 
     # computer randomly chooses from the rps list (minus the exit code)
     comp_choice = random.choice(rps_list[:-1])
-    print("Computer chose", comp_choice)
+
 
     # get user choice
     user_choice = string_checker("Choose: ", rps_list)
-    print("you chose", user_choice)
+    print("You chose", user_choice)
+    
 
     # if user choice is the exit code, break the loop
     if user_choice =="xxx":
         break
 
+    print("Computer chose", comp_choice)
 
     result = rps_compare(user_choice, comp_choice)
 
@@ -169,7 +171,7 @@ while rounds_played < num_rounds:
     # set up round feedback and output it to the user
     # add it to the game history list (include the round number)
     round_feedback = f"{user_choice} vs {comp_choice}, {feedback}"
-    history_item = f"Round : {rounds_played} - {round_feedback}"
+    history_item = f"Round : {rounds_played + 1} - {round_feedback}"
 
     print(round_feedback)
     game_history.append(history_item)
@@ -190,7 +192,7 @@ if rounds_played > 0:
     percent_tied = 100 - percent_won - percent_lost
 
     # output game stats
-    print("📊📊📊 Game Statistics 📊📊📊")
+    print("\n📊📊📊 Game Statistics 📊📊📊")
     print(f"🥳 Won: {percent_won:.2f}% \t "
           f"😭 Lost : {percent_lost:.2f}% \t"
           f"🫤 Tied : {percent_tied:.2f}% \t")
